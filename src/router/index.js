@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import PostList from "@/views/PostsList";
-import PostDetails from "@/views/PostDetails";
+import PostList from "@/pages/PostsList";
+import PostShow from "@/pages/PostShow";
 
 Vue.use(VueRouter);
 
@@ -16,7 +16,7 @@ export default new VueRouter({
     {
       path: "/post/:id",
       name: "post",
-      component: PostDetails,
+      component: PostShow,
       props: true
     }
   ]

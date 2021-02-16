@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="nav">
+    <div class="top">
       <router-link :to="{ name: 'posts-list' }">Posts</router-link>
     </div>
     <router-view />
@@ -15,21 +15,25 @@ html {
 }
 body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
 #app {
-  box-sizing: border-box;
-  width: 500px;
+  width: 700px;
   padding: 0 20px 20px;
   margin: 0 auto;
 }
 
-.nav {
+.top {
+  box-sizing: border-box;
+  height: 60px;
+  background-color: #e7e6e1;
+  collapse: #f2a154;
   margin-bottom: 15px;
-  text-align: center;
+  padding: 10px 20px;
 }
 a {
   font-weight: bold;
