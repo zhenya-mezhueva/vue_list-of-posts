@@ -14,6 +14,10 @@ export default new VueRouter({
       component: PostList
     },
     {
+      path: "/vue_list-of-posts/",
+      redirect: { name: "posts-list" }
+    },
+    {
       path: "/post/:id",
       name: "post",
       component: PostShow,
