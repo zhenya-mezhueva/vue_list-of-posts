@@ -14,15 +14,14 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    fetchPosts({ commit }) {
-      PostService.getPosts()
+    fetchPosts({ commit }, { perPage, page }) {
+      PostService.getPosts(perPage, page)
         .then(response => {
-          commit("SET_POSTS", response.data)
+          commit("SET_POSTS", response.data);
         })
         .catch(error => {
           console.log("There was an error:", error.response);
         });
     }
-  },
-  modules: {}
+  }
 });

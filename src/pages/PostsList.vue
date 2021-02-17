@@ -1,6 +1,20 @@
 <template>
   <div class="posts-list">
     <PostCard v-for="post in posts" :key="post.id" :post="post" />
+    <template v-if="page !== 1">
+      <router-link
+        :to="{ name: 'post-list', query: { page: page - 1 } }"
+        rel="prev"
+      >
+        Previous Page |
+      </router-link>
+    </template>
+    <router-link
+      :to="{ name: 'post-list', query: { page: page + 1 } }"
+      rel="next"
+    >
+      Next Page
+    </router-link>
   </div>
 </template>
 
@@ -14,9 +28,17 @@ export default {
     PostCard
   },
   created() {
-    this.$store.dispatch("fetchPosts");
+    this.$store.dispatch("fetchPosts", {
+      perPage: 5,
+      page: this.page
+    });
   },
-  computed: mapState(["posts"])
+  computed: {
+    page() {
+      return parseInt(this.$route.query.page) || "1";
+    },
+    ...mapState(["posts"])
+  },
 };
 </script>
 

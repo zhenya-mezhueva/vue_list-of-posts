@@ -1,6 +1,6 @@
 <template>
   <div class="post-card">
-    <div class="post-top">
+    <div class="post-card__top">
       <span>Post #{{post.id}}</span>
       <span>Author: user #{{post.userId}} </span>
     </div>
@@ -40,6 +40,11 @@ export default {
   transition: all 0.2s linear;
   cursor: pointer;
   background-color: whitesmoke;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &:hover {
     transform: scale(1.01);
